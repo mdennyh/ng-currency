@@ -65,6 +65,10 @@ angular.module('ng-currency', [])
                 element.on("blur", function () {
                     element.val($filter('currency')(ngModel.$modelValue, currencySymbol()));
                 });
+                
+                element.on("focus", function(){
+                    element.val(ngModel.$modelValue);
+                });
 
                 ngModel.$formatters.unshift(function (value) {
                     return $filter('currency')(value, currencySymbol());
