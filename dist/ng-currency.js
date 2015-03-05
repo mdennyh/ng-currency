@@ -62,6 +62,10 @@ angular.module('ng-currency', [])
                     return parseFloat(cVal);
                 });
 
+                element.on("focus", function(){
+                    element.val(ngModel.$modelValue);
+                });
+                
                 element.on("blur", function () {
                     element.val($filter('currency')(ngModel.$modelValue, currencySymbol()));
                 });
